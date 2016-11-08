@@ -26,7 +26,26 @@ namespace WhileLoops
                     candidateFactor++;
                 }
             }
-            Console.WriteLine();
+
+            Console.WriteLine("Guessing game time!");
+
+            int numberToGuess = new Random().Next(1,11); // a number from 1 to 10
+            int currentGuess = 0; 
+
+            while (currentGuess != numberToGuess)
+            {
+                Console.WriteLine("Guess the number (1 to 10): ");
+                currentGuess = int.Parse(Console.ReadLine());
+                if(currentGuess < numberToGuess)
+                {
+                    Console.WriteLine("You guessed too low! Try again!");
+                }
+                if(currentGuess > numberToGuess)
+                {
+                    Console.WriteLine("You guessed too high! Try again!");
+                }
+            }
+            Console.WriteLine("You got it! Good job!");
         }
     }
 }
