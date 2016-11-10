@@ -30,6 +30,36 @@ namespace ArraysCollections
             var colorStr = String.Join(",", colors2);
             Console.WriteLine(colorStr);
 
+            // Looping
+            var myList = new List<string>(){ "one", "two", "three" };
+            foreach (var item in myList)
+            {
+                Console.WriteLine(item);
+            }
+
+            var newList = new List<int>() { 43, 55, 100 };
+            for (int i = 0; i < myList.Count; i++)
+            {
+                Console.WriteLine(newList.ElementAt(i));
+                Console.WriteLine(newList[i]);
+            }
+
+            // array
+            int[] numbers = new[] { 2, 3, 5, 7 };
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                Console.WriteLine(numbers[i]);
+            }
+
+            // while loop
+            int index = 0;
+            while (index < myList.Count)
+            {
+                Console.WriteLine(myList[index]);
+                index++;
+            }
+
+            // interactive part
             bool active = true;
             while (active) 
             {
@@ -38,19 +68,19 @@ namespace ArraysCollections
                     + "or -- to clear. Type anything else to quit)):");
                 var action = Console.ReadLine();
 
-                if (action.Substring(2) == "--")
+                if (action.Substring(0, 2) == "--")
                 {
                     list.Clear();
                 } 
                 else if (action.Substring(0, 2) == "- ")
                 {
-                    list.RemoveAll(str => str == action.Substring(2));
+                    list.RemoveAll(str => str == action.Substring(0, 2));
                 }
                 else if (action.Substring(0, 2) == "+ ")
                 {
                     list.Add(action.Substring(2));
                 } 
-                else 
+                else if (action.Substring(0, 1) == 'q'.ToString())
                 {
                     active = false;
                 }
